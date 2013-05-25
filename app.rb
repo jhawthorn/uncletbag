@@ -13,7 +13,7 @@ get '/' do
 end
 
 get '/search' do
-  if @q = params['q']
+  if (@q = params['q']) && @q.size > 2
     @results = UncleTBag.search @q
     erb :main
   else

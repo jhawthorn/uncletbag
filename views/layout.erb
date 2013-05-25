@@ -6,10 +6,11 @@
 	</head>
 	<body style="padding-top: 1em;">
 		<div class="container">
-			<%if @error then %>
-				<div class="alert alert-error"><%=@error%></div>
-			<% end %>
 			<%= yield %>
+
+			<div class="text-center muted">
+				By <a href="http://twitter.com/jhawthorn">@jhawthorn</a>
+			</div>
 		</div>
 	</body>
 </html>
