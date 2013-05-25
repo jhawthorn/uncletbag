@@ -1,0 +1,25 @@
+<div class="hero-unit">
+	<h2 class="page-header">Arrested Development Quote Search</h2>
+	<form method="get" action="/search">
+		<div class="input-append">
+			<input type="text" name="q" class="input input-xlarge" value="<%= ERB::Util.html_escape @q %>">
+			<button class="btn">search</button>
+		</div>
+	</form>
+	<h2>Examples</h2>
+	<ul>
+		<li><a href="/search?q=No+touching">No Touching</a>
+		<li><a href="/search?q=Blue+Myself">Blue Myself</a>
+		<li><a href="/search?q=Ice+Cream">Ice Cream</a>
+		<li><a href="/search?q=Huge+Mistake">Huge Mistake</a>
+	</ul>
+</div>
+
+<% @results.each do |result| %>
+	<h2>Season <%= result.season %> Episode <%= result.episode %></h2>
+	<h3>At <%= "%i:%.2i" % [result.time / 60, result.time % 60] %></h2>
+	<p>
+		<%= result.text.join("<br/>") %>
+	</p>
+
+<% end %>
